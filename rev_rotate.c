@@ -17,13 +17,8 @@ static void	rev_rotate(t_stack_node **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	
 	last = find_last(*stack);
-	
-	// 1. Detach last node
 	last->prev->next = NULL;
-	
-	// 2. Attach to front
 	last->next = *stack;
 	last->prev = NULL;
 	*stack = last;

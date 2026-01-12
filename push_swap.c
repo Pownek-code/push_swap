@@ -21,10 +21,8 @@ int	main(int argc, char **argv)
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
-		argv = split(argv[1], ' '); // <--- The Magic Line
-	
-	init_stack_a(&a, argv + 1); // logic remains the same
-
+		argv = split(argv[1], ' ');
+	init_stack_a(&a, argv + 1);
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)

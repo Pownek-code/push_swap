@@ -55,7 +55,7 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 			current_b = current_b->next;
 		}
 		if (best_match_index == LONG_MIN)
-			a->target_node = find_max(b); // Defined in stack_utils (need to add)
+			a->target_node = find_max(b);
 		else
 			a->target_node = target_node;
 		a = a->next;
@@ -63,6 +63,25 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 }
 
 // 3. Calculate Push Cost
+// static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
+// {
+// 	int	len_a;
+// 	int	len_b;
+//
+// 	len_a = stack_len(a);
+// 	len_b = stack_len(b);
+// 	while (a)
+// 	{
+// 		a->push_cost = a->index;
+// 		if (!(a->above_median))
+// 			a->push_cost = len_a - (a->index);
+// 		if (a->target_node->above_median)
+// 			a->push_cost += a->target_node->index;
+// 		else
+// 			a->push_cost += len_b - (a->target_node->index);
+// 		a = a->next;
+// 	}
+// }
 static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
@@ -75,15 +94,27 @@ static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 		a->push_cost = a->index;
 		if (!(a->above_median))
 			a->push_cost = len_a - (a->index);
-		if (a->target_node->above_median)
-			a->push_cost += a->target_node->index;
+		if (a->above_median && a->target_node->above_median)
+		{
+			if (a->target_node->index > a->index)
+				a->push_cost = a->target_node->index;
+		}
+		else if (!(a->above_median) && !(a->target_node->above_median))
+		{
+			if ((len_b - a->target_node->index) > a->push_cost)
+				a->push_cost = len_b - a->target_node->index;
+		}
 		else
-			a->push_cost += len_b - (a->target_node->index);
+		{
+			if (a->target_node->above_median)
+				a->push_cost += a->target_node->index;
+			else
+				a->push_cost += len_b - (a->target_node->index);
+		}
 		a = a->next;
 	}
 }
 
-// 4. Find the Cheapest Node to move
 void	set_cheapest(t_stack_node *stack)
 {
 	long			cheapest_value;

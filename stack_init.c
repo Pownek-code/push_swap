@@ -53,8 +53,7 @@ static void	append_node(t_stack_node **stack, int n)
 		return ;
 	node->next = NULL;
 	node->value = n;
-    // Cheating: We initialize everything else to 0/false
-    node->cheapest = 0; 
+	node->cheapest = 0;
 	if (!(*stack))
 	{
 		*stack = node;

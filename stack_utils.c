@@ -47,6 +47,7 @@ bool	stack_sorted(t_stack_node *stack)
 	}
 	return (true);
 }
+
 t_stack_node	*find_min(t_stack_node *stack)
 {
 	long			min;

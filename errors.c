@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-// 1. Syntax Check: Validates that the string is a real number (+/- digits)
 int	error_syntax(char *str_n)
 {
 	if (!(*str_n == '+' || *str_n == '-' || (*str_n >= '0' && *str_n <= '9')))
 		return (1);
-	if ((*str_n == '+' || *str_n == '-') && !(str_n[1] >= '0' && str_n[1] <= '9'))
+	if ((*str_n == '+' || *str_n == '-') && !(str_n[1] >= '0'
+		&& str_n[1] <= '9'))
 		return (1);
 	while (*++str_n)
 	{
@@ -26,7 +26,6 @@ int	error_syntax(char *str_n)
 	return (0);
 }
 
-// 2. Duplicate Check: Scans the stack to see if the number exists
 int	error_duplicate(t_stack_node *a, int n)
 {
 	if (!a)
@@ -40,7 +39,6 @@ int	error_duplicate(t_stack_node *a, int n)
 	return (0);
 }
 
-// 3. Free Stack: Standard list cleanup
 void	free_stack(t_stack_node **stack)
 {
 	t_stack_node	*tmp;
@@ -58,7 +56,6 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-// 4. Free Errors: Helper to print Error and exit
 void	free_errors(t_stack_node **a)
 {
 	free_stack(a);

@@ -17,15 +17,10 @@ static void	rotate(t_stack_node **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	
 	last_node = find_last(*stack);
-	
-	// 1. Move the second node to be the new Head
-	last_node->next = *stack; 
-	*stack = (*stack)->next; 
+	last_node->next = *stack;
+	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
-	
-	// 2. Fix the old Head (now last)
 	last_node->next->prev = last_node;
 	last_node->next->next = NULL;
 }

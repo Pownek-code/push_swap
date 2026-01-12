@@ -13,25 +13,19 @@
 
 static void	swap(t_stack_node **head)
 {
-	// Check if stack has at least 2 nodes
+	t_stack_node	*first;
+	t_stack_node	*second;
+
 	if (!*head || !(*head)->next)
 		return ;
-	
-	// Pointers to the two nodes
-	t_stack_node *first = *head;
-	t_stack_node *second = first->next;
-
-	// Update first node
+	first = *head;
+	second = first->next;
 	first->next = second->next;
 	if (second->next)
 		second->next->prev = first;
 	first->prev = second;
-
-	// Update second node
 	second->next = first;
 	second->prev = NULL;
-
-	// Update head
 	*head = second;
 }
 

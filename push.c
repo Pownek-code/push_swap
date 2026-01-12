@@ -17,15 +17,11 @@ static void	push(t_stack_node **dest, t_stack_node **src)
 
 	if (!*src)
 		return ;
-	
-	// 1. Detach from Src
 	node_to_push = *src;
 	*src = (*src)->next;
 	if (*src)
 		(*src)->prev = NULL;
-	
-	// 2. Attach to Dest
-	node_to_push->prev = NULL; // It will be the new head
+	node_to_push->prev = NULL;
 	if (!*dest)
 	{
 		*dest = node_to_push;

@@ -33,8 +33,8 @@ typedef struct s_stack_node
 // Handle Errors
 void			free_stack(t_stack_node **stack);
 void			free_errors(t_stack_node **a);
-int	error_duplicate(t_stack_node *a, int n);
-int	error_syntax(char *str_n);
+int				error_duplicate(t_stack_node *a, int n);
+int				error_syntax(char *str_n);
 
 // Stack Creation
 void			init_stack_a(t_stack_node **a, char **argv);
@@ -70,5 +70,5 @@ t_stack_node	*find_max(t_stack_node *stack);
 
 //
 
-char	**split(char *s, char c);
+char			**split(char *s, char c);
 #endif
