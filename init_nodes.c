@@ -62,26 +62,6 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-// 3. Calculate Push Cost
-// static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
-// {
-// 	int	len_a;
-// 	int	len_b;
-//
-// 	len_a = stack_len(a);
-// 	len_b = stack_len(b);
-// 	while (a)
-// 	{
-// 		a->push_cost = a->index;
-// 		if (!(a->above_median))
-// 			a->push_cost = len_a - (a->index);
-// 		if (a->target_node->above_median)
-// 			a->push_cost += a->target_node->index;
-// 		else
-// 			a->push_cost += len_b - (a->target_node->index);
-// 		a = a->next;
-// 	}
-// }
 static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
