@@ -1,0 +1,10 @@
+# Object files
+*.o
+
+# Executables
+push_swap
+a.out
+
+# VSCode or System files (Optional)
+.vscode/
+.DS_Store
