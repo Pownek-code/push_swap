@@ -100,8 +100,6 @@ static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-
-
 void	init_nodes_a(t_stack_node *a, t_stack_node *b)
 {
 	current_index(a);
