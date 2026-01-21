@@ -1,7 +1,7 @@
 NAME	= push_swap
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror -g
-src = push_swap.c stack_init.c errors.c stack_utils.c swap.c push.c rotate.c rev_rotate.c sort_tiny.c sort_stacks.c init_nodes.c split.c
+src = push_swap.c stack_init.c errors.c stack_utils.c swap.c push.c rotate.c rev_rotate.c sort_tiny.c sort_stacks.c init_nodes.c split.c stack_find.c
 OBJ		= $(src:.c=.o)
 
 all: $(NAME)
