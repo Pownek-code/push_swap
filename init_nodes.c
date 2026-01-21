@@ -62,6 +62,27 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
+static void	calculate_combined_cost(t_stack_node *a, int len_b)
+{
+	if (a->above_median && a->target_node->above_median)
+	{
+		if (a->target_node->index > a->index)
+			a->push_cost = a->target_node->index;
+	}
+	else if (!(a->above_median) && !(a->target_node->above_median))
+	{
+		if ((len_b - a->target_node->index) > a->push_cost)
+			a->push_cost = len_b - a->target_node->index;
+	}
+	else
+	{
+		if (a->target_node->above_median)
+			a->push_cost += a->target_node->index;
+		else
+			a->push_cost += len_b - (a->target_node->index);
+	}
+}
+
 static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
@@ -74,23 +95,7 @@ static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 		a->push_cost = a->index;
 		if (!(a->above_median))
 			a->push_cost = len_a - (a->index);
-		if (a->above_median && a->target_node->above_median)
-		{
-			if (a->target_node->index > a->index)
-				a->push_cost = a->target_node->index;
-		}
-		else if (!(a->above_median) && !(a->target_node->above_median))
-		{
-			if ((len_b - a->target_node->index) > a->push_cost)
-				a->push_cost = len_b - a->target_node->index;
-		}
-		else
-		{
-			if (a->target_node->above_median)
-				a->push_cost += a->target_node->index;
-			else
-				a->push_cost += len_b - (a->target_node->index);
-		}
+		calculate_combined_cost(a, len_b);
 		a = a->next;
 	}
 }
