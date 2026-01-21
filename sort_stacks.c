@@ -66,16 +66,16 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 }
 
 // Initializing nodes for B to A return
-void init_nodes_b(t_stack_node *a, t_stack_node *b)
+void	init_nodes_b(t_stack_node *a, t_stack_node *b)
 {
-    current_index(a);
-    current_index(b);
     
     // Set target for B (Find closest BIGGER number in A)
-    t_stack_node *current_a;
-    t_stack_node *target_node;
-    long best_match_index;
+    t_stack_node	*current_a;
+    t_stack_node	*target_node;
+    long			best_match_index;
 
+	current_index(a);
+	current_index(b);
     while (b)
     {
         best_match_index = LONG_MAX;
