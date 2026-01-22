@@ -72,6 +72,10 @@ t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
 
 //
-
 char			**split(char *s, char c);
+
+// Libft Utils
+size_t			ft_strlen(const char *s);
+char			*ft_strcpy(char *dest, const char *src);
+char			*ft_strjoin(char *s1, char *s2);
 #endif
