@@ -64,6 +64,8 @@ void			tiny_sort(t_stack_node **a);
 void			init_nodes_a(t_stack_node *a, t_stack_node *b);
 void			init_nodes_b(t_stack_node *a, t_stack_node *b);
 void			current_index(t_stack_node *stack);
+void			move_a_to_b(t_stack_node **a, t_stack_node **b);
+void			move_b_to_a(t_stack_node **a, t_stack_node **b);
 void			set_cheapest(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
