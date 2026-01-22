@@ -15,14 +15,21 @@ int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
+	bool			is_split;
 
 	a = NULL;
 	b = NULL;
+	is_split = false;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
+	{
 		argv = split(argv[1], ' ');
+		is_split = true;
+	}
 	init_stack_a(&a, argv + 1);
+	if (is_split)
+		free_argv(argv);
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
