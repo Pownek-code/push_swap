@@ -74,10 +74,9 @@ char	*ft_strjoin(char *s1, char *s2)
 		ft_strcpy(new_str, s1);
 		return (new_str);
 	}
-
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
-	new_str = (char *)malloc(sizeof(char) * (len1 + len2 + 2)); // +1 for space, +1 for null terminator
+	new_str = (char *)malloc(sizeof(char) * (len1 + len2 + 2));
 	if (!new_str)
 		return (NULL);
 	ft_strcpy(new_str, s1);
