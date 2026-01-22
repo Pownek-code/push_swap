@@ -12,8 +12,7 @@
 #include "push_swap.h"
 // Helper to rotate both stacks if needed
 static void	rotate_both(t_stack_node **a,
-						t_stack_node **b,
-						t_stack_node *cheapest_node)
+						t_stack_node **b, t_stack_node *cheapest_node)
 {
 	while (*b != cheapest_node->target_node
 		&& *a != cheapest_node)
@@ -23,8 +22,7 @@ static void	rotate_both(t_stack_node **a,
 }
 
 static void	rev_rotate_both(t_stack_node **a,
-							t_stack_node **b,
-							t_stack_node *cheapest_node)
+							t_stack_node **b, t_stack_node *cheapest_node)
 {
 	while (*b != cheapest_node->target_node
 		&& *a != cheapest_node)
@@ -64,65 +62,62 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 	}
 	pb(b, a, false);
 }
-
 // Initializing nodes for B to A return
+
 void	init_nodes_b(t_stack_node *a, t_stack_node *b)
 {
-    
-    // Set target for B (Find closest BIGGER number in A)
-    t_stack_node	*current_a;
-    t_stack_node	*target_node;
-    long			best_match_index;
+	t_stack_node	*current_a;
+	t_stack_node	*target_node;
+	long			best_match_index;
 
 	current_index(a);
 	current_index(b);
-    while (b)
-    {
-        best_match_index = LONG_MAX;
-        current_a = a;
-        while (current_a)
-        {
-            if (current_a->value > b->value
-                && current_a->value < best_match_index)
-            {
-                best_match_index = current_a->value;
-                target_node = current_a;
-            }
-            current_a = current_a->next;
-        }
-        if (best_match_index == LONG_MAX)
-            b->target_node = find_min(a); // Defined in stack_utils
-        else
-            b->target_node = target_node;
-        b = b->next;
-    }
+	while (b)
+	{
+		best_match_index = LONG_MAX;
+		current_a = a;
+		while (current_a)
+		{
+			if (current_a->value > b->value
+				&& current_a->value < best_match_index)
+			{
+				best_match_index = current_a->value;
+				target_node = current_a;
+			}
+			current_a = current_a->next;
+		}
+		if (best_match_index == LONG_MAX)
+			b->target_node = find_min(a);
+		else
+			b->target_node = target_node;
+		b = b->next;
+	}
 }
 
-// Move B back to A
-static void move_b_to_a(t_stack_node **a, t_stack_node **b)
+static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 {
-    while (*a != (*b)->target_node)
-    {
-        if ((*b)->target_node->above_median)
-            ra(a, false);
-        else
-            rra(a, false);
-    }
-    pa(a, b, false);
+	while (*a != (*b)->target_node)
+	{
+		if ((*b)->target_node->above_median)
+			ra(a, false);
+		else
+			rra(a, false);
+	}
+	pa(a, b, false);
 }
 
-static void min_on_top(t_stack_node **a)
+static void	min_on_top(t_stack_node **a)
 {
-    t_stack_node *min_node;
+	t_stack_node	*min_node;
 
-    min_node = find_min(*a); // Defined in stack_utils
-    while ((*a)->value != min_node->value)
-    {
-        if (min_node->above_median)
-            ra(a, false);
-        else
-            rra(a, false);
-    }
+	min_node = find_min(*a);
+	while ((*a)->value != min_node->value)
+	{
+		if (min_node->above_median)
+			ra(a, false);
+		else
+			rra(a, false);
+	}
 }
 
 void	sort_stacks(t_stack_node **a, t_stack_node **b)
