@@ -54,9 +54,9 @@ static void	min_on_top(t_stack_node **a)
 	while ((*a)->value != min_node->value)
 	{
 		if (min_node->above_median)
-			ra(a, false);
+			ra(a);
 		else
-			rra(a, false);
+			rra(a);
 	}
 }
 
@@ -66,9 +66,9 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 
 	len_a = stack_len(*a);
 	if (len_a-- > 3 && !stack_sorted(*a))
-		pb(b, a, false);
+		pb(b, a);
 	if (len_a-- > 3 && !stack_sorted(*a))
-		pb(b, a, false);
+		pb(b, a);
 	while (len_a-- > 3 && !stack_sorted(*a))
 	{
 		init_nodes_a(*a, *b);

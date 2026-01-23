@@ -25,24 +25,21 @@ static void	rev_rotate(t_stack_node **stack)
 	last->next->prev = last;
 }
 
-void	rra(t_stack_node **a, bool print)
+void	rra(t_stack_node **a)
 {
 	rev_rotate(a);
-	if (!print)
-		write(1, "rra\n", 4);
+	write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack_node **b, bool print)
+void	rrb(t_stack_node **b)
 {
 	rev_rotate(b);
-	if (!print)
-		write(1, "rrb\n", 4);
+	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack_node **a, t_stack_node **b, bool print)
+void	rrr(t_stack_node **a, t_stack_node **b)
 {
 	rev_rotate(a);
 	rev_rotate(b);
-	if (!print)
-		write(1, "rrr\n", 4);
+	write(1, "rrr\n", 4);
 }

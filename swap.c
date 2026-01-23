@@ -29,24 +29,21 @@ static void	swap(t_stack_node **head)
 	*head = second;
 }
 
-void	sa(t_stack_node **a, bool print)
+void	sa(t_stack_node **a)
 {
 	swap(a);
-	if (!print)
-		write(1, "sa\n", 3);
+	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack_node **b, bool print)
+void	sb(t_stack_node **b)
 {
 	swap(b);
-	if (!print)
-		write(1, "sb\n", 3);
+	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack_node **a, t_stack_node **b, bool print)
+void	ss(t_stack_node **a, t_stack_node **b)
 {
 	swap(a);
 	swap(b);
-	if (!print)
-		write(1, "ss\n", 3);
+	write(1, "ss\n", 3);
 }

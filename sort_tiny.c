@@ -38,9 +38,9 @@ void	tiny_sort(t_stack_node **a)
 
 	highest_node = find_highest(*a);
 	if (*a == highest_node)
-		ra(a, false);
+		ra(a);
 	else if ((*a)->next == highest_node)
-		rra(a, false);
+		rra(a);
 	if ((*a)->value > (*a)->next->value)
-		sa(a, false);
+		sa(a);
 }
