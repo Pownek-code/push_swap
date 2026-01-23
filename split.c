@@ -70,17 +70,15 @@ char	**split(char *s, char c)
 	result_array = malloc(sizeof(char *) * (size_t)(words_count + 2));
 	if (NULL == result_array)
 		return (NULL);
-	while (words_count-- >= 0)
+	result_array[0] = malloc(sizeof(char));
+	if (!result_array[0])
+		return (NULL);
+	result_array[0][0] = '\0';
+	i = 1;
+	while (words_count-- > 0)
 	{
-		if (0 == i)
-		{
-			result_array[i] = malloc(sizeof(char));
-			if (NULL == result_array[i])
-				return (NULL);
-			result_array[i++][0] = '\0';
-			continue ;
-		}
-		result_array[i++] = get_next_word(s, c);
+		result_array[i] = get_next_word(s, c);
+		i++;
 	}
 	result_array[i] = NULL;
 	return (result_array);
