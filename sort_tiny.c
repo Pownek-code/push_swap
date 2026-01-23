@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-// Find the highest value node
 static t_stack_node	*find_highest(t_stack_node *stack)
 {
 	int				highest;

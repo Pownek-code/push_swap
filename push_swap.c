@@ -43,7 +43,7 @@ static void	perform_sort(t_stack_node **a, t_stack_node **b)
 	if (!stack_sorted(*a))
 	{
 		if (stack_len(*a) == 2)
-			sa(a, false);
+			sa(a);
 		else if (stack_len(*a) == 3)
 			tiny_sort(a);
 		else

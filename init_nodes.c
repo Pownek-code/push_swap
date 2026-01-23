@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-// 1. Assign current index and median status to all nodes
 void	current_index(t_stack_node *stack)
 {
 	int	i;
@@ -33,7 +32,6 @@ void	current_index(t_stack_node *stack)
 	}
 }
 
-// 2. Set Target for A (Find closest smaller number in B)
 static void	set_target_a(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current_b;

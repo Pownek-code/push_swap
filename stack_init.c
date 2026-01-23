@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-// 1. ATOL: Converts string to long (to check INT_MAX/MIN)
 static long	ft_atol(const char *str)
 {
 	long	num;
@@ -40,7 +39,6 @@ static long	ft_atol(const char *str)
 	return (num * sign);
 }
 
-// 2. Append Node: Adds a new node to the end of the list
 static void	append_node(t_stack_node **stack, int n)
 {
 	t_stack_node	*node;
@@ -67,7 +65,6 @@ static void	append_node(t_stack_node **stack, int n)
 	}
 }
 
-// 3. The Main Parser
 void	init_stack_a(t_stack_node **a, char **argv)
 {
 	long	n;
