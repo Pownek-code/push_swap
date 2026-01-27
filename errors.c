@@ -56,8 +56,6 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-
-
 void	free_argv(char **argv)
 {
 	int	i;

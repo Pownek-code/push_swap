@@ -72,6 +72,5 @@ int	main(int argc, char **argv)
 	free_argv(split_args);
 	perform_sort(&a, &b);
 	free_stack(&a);
-	// Final free
 	return (0);
 }
