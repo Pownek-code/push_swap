@@ -9,7 +9,7 @@
 /*   Updated: 2026/01/22 07:00:00 by gemini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h" // Assuming push_swap.h includes stdlib.h for size_t
+#include "push_swap.h"
 
 size_t	ft_strlen(const char *s)
 {
