@@ -1,6 +1,6 @@
 NAME	= push_swap
 CC		= cc
-CFLAGS	= -Wall -Wextra -Werror -g
+CFLAGS	= -Wall -Wextra -Werror
 src = push_swap.c stack_init.c errors.c stack_utils.c swap.c push.c rotate.c rev_rotate.c sort_tiny.c sort_stacks.c init_nodes.c split.c stack_find.c algo_moves.c libft_utils.c
 OBJ		= $(src:.c=.o)
 
